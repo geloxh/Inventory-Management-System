@@ -1,0 +1,10 @@
+inventory-management-system-1.0-SNAPSHOT.jar : This is the standard JAR file that Maven creates by default. 
+It contains only the compiled code from your project, which is located in src/main/java. It does not include 
+any of the libraries or dependencies that your project relies on (like JUnit, in your case).
+
+inventory-management-system-1.0-SNAPSHOT-jar-with-dependencies.jar : It contains:
+Your project's compiled code.
+All of your project's dependencies, bundled together in a single file.
+
+run program: 
+java -jar target/inventory-management-system-1.0-SNAPSHOT-jar-with-dependencies.jar
