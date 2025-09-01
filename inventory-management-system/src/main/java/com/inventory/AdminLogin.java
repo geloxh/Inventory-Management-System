@@ -319,4 +319,220 @@ public void Checkadmin(){
     private void at1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_at1ActionPerformef
         // TODO add your handling code here:
     }// GEN-LAST:event_at1ActionPerformed
+
+    private void abtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_abtnActionPerformed
+close();
+    Connection con;
+    PreparedStatement ps;
+        try {
+            con = DriverManager.getConnection("jdbc:mysql://localhost/qb", "root", "password");
+
+            // con=DriverManager.getConnection("jdbc:mysql://localhost/qb", "root", "password");
+            ps = con.preparedStatement("SELECT `username`, `password` FROM `admin` WHERE `username`=? AND `password`=?;");
+            ps.setString(1, at1.getText());
+            ps.setString(2, String.valueOf(at2.getPassword()));
+            ResultSet rs = ps.executeQuery();
+            if(rs.next())
+            {
+
+                MainFrame main = new MainFrame();
+                main.setVisible(true);
+                this.setVisible(false);
+            } else {
+                JOptionPane.showMessageDialog(null, "Invalid Username or Password");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminLogin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    } //GEN-LAST:event_abtnActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) { //GEN-FIRST:event_jButton2ActionPerformed
+        Home lo = new Home();
+        lo.setVisible(true);
+        this.setVisible(false);
+    } //GEN-LAST:event_jButton2ActionPerformed
+
+    private void at2KeyPressed(java.awt.event.KeyEvent evt) { //GEN-FIRST:event_at2KeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+
+            close();
+            Connection con;
+            PreparedStatement ps;
+            try {
+                con = DriverManager.getConnection("jdbc:mysql://localhost/qb", "root", "password");
+                ps = con.prepareStatement("SELECT `username`, `password`, FROM `admin` WHERE `username`=? AND `password`=?;");
+                ps.setString(1, at1.getText());
+                ps.setString(2, String.valueOf(at2.getPassword()));
+                ResultSet rs = ps.executeQuery();
+                if (rs.next()) {
+                    MainFrame main = new MainFrame();
+                    main.setVisible(true);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Invalid Username or Password");
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(AdminLogin.class.getName()).log(Level.SEVER, null, ex);
+            }
+        }
+
+        if (evt.getKeyCode() == KeyEvent.VK_ESCAPE) {
+            Home lo = new Home();
+            lo.setVisible(true);
+            this.setVisible(false);
+        }
+    } //GEN-LAST:event_at2KeyPressed
+
+    private void at1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_at1KeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER) {
+
+            close();
+            Connection con;
+            PreparedStatement ps;
+            try {
+                con = DriverManager.getConnection("jdbc:mysql://localhost/qb", "root", "password");
+                ps = con.prepareStatement("SELECT `username`, `password`, FROM `admin` WHERE `username`=? AND `password`=?;");
+                ps.setString(1, at1.getText());
+                ps.setString(2, String.valueOf(at2.getPassword()));
+                ResultSet rs = ps.executeQuery();
+                if (rs.next()) {
+                    MainFrame main = new MainFrame();
+                    main.setVisible(true);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Invalid Username or Password");
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(AdminLogin.class.getName()).log(Level.SEVER, null, ex);
+            }
+        }
+        if (evt.getKeyCode() == KeyEvent.VK_ESCAPE) {
+            Home lo = new Home();
+            lo.setVisible(true);
+            this.setVisible(false);
+        }
+    } //GEN-LAST:event_at1KeyPressed
+           
+     private void abtnKeyPressed(java.awt.event.KeyEvent evt) { // GEN-FIRST:event_abtnKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ESCAPE) {
+            Home lo = new Home();
+            lo.setVisible(true);
+            this.setVisible(false);
+        }
+     } // GEN-LAST:event_abtnKeyPressed
+
+     private void jButton2KeyPressed(java.awt.event.KeyEvent evt) { // GEN-FIRST:event_jButton2KeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ESCAPE) {
+            Home lo = new Home();
+            lo.setVisible(true);
+            this.setVisible(false);
+        }
+     } // GEN-LAST:event_jButton2KeyPressed
+
+     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) { // GEN-FIRST:event_jMenuItem1ActionPerformed
+        Checkadmin();
+     } // GEN-LAST:event_jMenuItem1ActionPerformed
+
+     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) { // GEN-FIRST:event_jMenuItem2ActionPerformed
+        JOptionPane.showMessageDialog(null, "PLEASE UPGRADE TO PRO VERSION", "INFORMATION", JOptionPane.INFORMATION_MESSAGE);
+     } // GEN-LAST:event_jMenuItem2ActionPerformed
+
+     private void jTable1aMouseClicked(java.awt.event.MouseEvent evt) { // GEN-FIRST:event_jTable1aMouseClicked
+
+     } // GEN-LAST:event_jTable1aMouseClicked
+
+     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) { // GEN-FIRST:event_jMenuItem3ActionPerformed
+        dispose(); // TODO add your handling code here:
+     } // GEN-LAST:event_jMenuItem3ActionPerformed
+
+     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) { // GEN-FIRST:event_jMenuItem5ActionPerformed
+        JOptionPane.showMessageDialog(null, "FIRST Version 1.0.0 (Free Version) ", "INFORMATION", JOptionPane.INFORMATION_MESSAGE);
+     } // GEN-LAST:event_jMenuItem5ActionPerformed
+
+     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) { // GEN-FIRST:event_jMenuItem4ActionPerformed
+        JOptionPane.showMessageDialog(null, "For Complaints or Inquiry \n Kindly Contact the Developer \n Viber +639913290600 \n Telegram +639913290600 \n Facebook www.facebook.com/geloxharlesewon", "INFORMATION", JOptionPane.INFORMATION_MESSAGE);
+        
+     } // GEN-LAST:event_jMenuItem4ActionPerformed
+
+     private void jCheckBox1KeyPressed(java.awt.event.KeyEvent evt) { // GEN-FIRST:event_jCheckBox1KeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ESCAPE) {
+            Home lo = new Home();
+            lo.setVisible(true);
+            this.setVisible(false);
+        }
+     } // GEN-LAST:event_jCheckBox1KeyPressed
+
+     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) { // GEN-FIRST:event_jCheckBox1ActionPerformed
+        if(jCheckBox1.isSelected()) {
+            at2.setEchoChar((char)0);
+        } else {
+            at2.setEchoChar('*');
+        }
+     } // GEN-LAST:event_jCheckBox1ActionPerformed
+
+     /**
+      * @param args the command line arguments
+      */
+
+      public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+
+            UIManager.setLookAndFeel("com.jtattoo.plaf.acryl.AcrylLookAndFeel");
+            /*
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        */
+        
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(AdminLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(AdminLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(AdminLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(AdminLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new AdminLogin().setVisible(true);
+            }
+        });
+
+      }
+
+      // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton abtn;
+    private javax.swing.JLabel al1;
+    private javax.swing.JLabel al2;
+    private javax.swing.JTextField at1;
+    private javax.swing.JPasswordField at2;
+    private javax.swing.JTextField holdcount;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JTable jTable1a;
+    // End of variables declaration//GEN-END:variables
+    
 }
